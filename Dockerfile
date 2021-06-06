@@ -7,5 +7,5 @@ RUN pip install gunicorn
 RUN pip install uvicorn[standard]
 EXPOSE 8000
 
-CMD ["gunicorn", "ws_imp_dj.asgi:application","-k","uvicorn.workers.UvicornWorker", "--workers=2", "-b","0.0.0.0:8000"]
+CMD ["daphne","-b","0.0.0.0","-p" ,"8001" ,"ws_imp_dj.asgi:application"]
 
